@@ -1,0 +1,454 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    /* Subtle background gradient with lighter shades for a softer look */
+    background: linear-gradient(135deg, #FFF5EB, #F0E8E8); /* Very light saffron to very light reddish */
+    background-attachment: fixed; /* Ensures gradient covers full height even with less content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #333; /* Default text color, dark for contrast on lighter areas */
+    line-height: 1.6;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1100px; /* Slightly wider container for more content space */
+    margin: 0 auto; /* Center the app container */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent; /* Allows body gradient to show through */
+    box-shadow: none;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.app-header {
+    background-color: #A04040; /* Muted red for header */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    margin-bottom: 30px; /* More space below header */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 15px; /* Rounded corners for header */
+    border-bottom-right-radius: 15px;
+}
+
+.app-header h1 {
+    color: white;
+    margin: 10px 0 0;
+    font-size: 2.2em; /* Slightly larger title */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px; /* Space between logos and title */
+}
+
+.annbrahamma-logo, .iitr-logo {
+    height: 70px; /* Equal size for both logos */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures image fits within bounds */
+    margin: 0 15px; /* Space between logos */
+}
+
+.view-switcher {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background for switcher */
+    border-radius: 30px;
+    padding: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.view-switcher button {
+    background-color: transparent;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: none; /* No individual button shadow here */
+}
+
+.view-switcher button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: none; /* Remove previous transform */
+}
+
+.view-switcher button.active {
+    background-color: #FF9933; /* Saffron for active button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for active button */
+    color: white;
+}
+
+.main-content {
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 25px; /* More horizontal padding */
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 30px;
+    background-color: white; /* Pure white for content areas */
+    border-radius: 15px; /* More rounded corners for containers */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    margin-bottom: 40px; /* More space below content blocks */
+}
+
+.user-view-container, .admin-view-container {
+    margin-top: 0; /* Handled by app-header margin-bottom */
+}
+
+h1, h2, h3, h4 {
+    color: #A04040; /* Muted red for headings within content */
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.feature-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: -10px 0 30px; /* Adjusted margin */
+    font-size: 1.1em;
+    padding: 12px;
+    background-color: #FFF8E1; /* Very light saffron background */
+    border-left: 5px solid #FF9933; /* Saffron border */
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+button {
+    background-color: #FF9933; /* Saffron for primary buttons */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 17px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background-color: #e68a2e; /* Darker saffron on hover */
+    transform: translateY(-2px);
+}
+
+/* Specific button styles for admin actions */
+.edit-button {
+    background-color: #4CAF50; /* Green for edit */
+}
+.edit-button:hover {
+    background-color: #45a049;
+}
+.delete-button {
+    background-color: #F44336; /* Red for delete */
+}
+.delete-button:hover {
+    background-color: #da190b;
+}
+.cancel-edit-button {
+    background-color: #757575; /* Dark grey for cancel */
+}
+.cancel-edit-button:hover {
+    background-color: #616161;
+}
+.view-details-button {
+    background-color: #2196F3; /* Blue for view details */
+}
+.view-details-button:hover {
+    background-color: #1976d2;
+}
+
+
+/* Form Elements */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+select {
+    padding: 12px;
+    margin-right: 10px;
+    border: 1px solid #FFC107; /* Lighter saffron border for inputs */
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #A04040; /* Muted red border on focus */
+    box-shadow: 0 0 0 4px rgba(160, 64, 64, 0.2);
+    outline: none;
+}
+
+/* Admin Login Form */
+.login-form-container {
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: 50px auto; /* Center login form vertically */
+    max-width: 400px; /* Restrict width */
+}
+.login-form-container .form-group {
+    margin-bottom: 20px;
+}
+.login-form-container button {
+    width: 100%; /* Full width button */
+    margin-right: 0;
+}
+
+
+/* Admin Menu Item Form */
+.menu-form-container {
+    border: 1px solid #FFD580; /* Lighter saffron border for form */
+    padding: 25px;
+    border-radius: 12px;
+    background-color: #FFFBF5; /* Very light, warm background */
+    margin-bottom: 35px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.form-group {
+    margin-bottom: 18px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #555;
+}
+.form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+.form-group.checkbox-group label {
+    margin-bottom: 0;
+    margin-right: 12px;
+}
+
+
+/* User View Specifics */
+.meal-type-selector button {
+    margin-right: 12px;
+    background-color: #C0C0C0; /* Light grey for inactive meal type */
+    margin-bottom: 12px;
+    color: #333; /* Dark text on light background */
+}
+
+.meal-type-selector button:hover {
+    background-color: #B0B0B0;
+    transform: translateY(-1px);
+}
+
+.meal-type-selector button.active {
+    background-color: #A04040; /* Muted red for active meal type */
+    color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+.meal-type-selector button.active:hover {
+    background-color: #8A3030;
+}
+
+.menu-item {
+    border: 1px solid #E0E0E0; /* Lighter border */
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fcfcfc;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+.menu-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+
+.order-summary, .order-receipt {
+    border: 2px dashed #FF9933; /* Saffron dashed border */
+    padding: 25px;
+    margin-top: 30px;
+    background-color: #FFFBF5; /* Light, warm background */
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.order-summary h3, .order-receipt h3 {
+    color: #A04040;
+}
+
+
+/* Admin Dashboard Specifics */
+.admin-dashboard button {
+    margin-top: 15px;
+    margin-right: 12px;
+}
+
+.admin-orders-table, .admin-menu-table, .daily-financial-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden; /* Ensures rounded corners on table */
+}
+
+.admin-orders-table th, .admin-orders-table td,
+.admin-menu-table th, .admin-menu-table td,
+.daily-financial-table th, .daily-financial-table td {
+    border: 1px solid #f0f0f0;
+    padding: 12px;
+    text-align: left;
+}
+
+.admin-orders-table th, .admin-menu-table th, .daily-financial-table th {
+    background-color: #FF9933; /* Saffron for table headers */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 0.03em;
+}
+
+.admin-orders-table tbody tr:nth-child(even),
+.admin-menu-table tbody tr:nth-child(even),
+.daily-financial-table tbody tr:nth-child(even) {
+    background-color: #f8f8f8; /* Subtle stripe effect */
+}
+.admin-orders-table tbody tr:hover,
+.admin-menu-table tbody tr:hover,
+.daily-financial-table tbody tr:hover {
+    background-color: #FFFBF5; /* Light saffron on hover */
+}
+
+/* Table Total Row */
+.daily-financial-table .total-row {
+    background-color: #A04040; /* Muted red for the total row */
+    color: white;
+    font-weight: bold;
+}
+.daily-financial-table .total-row td {
+    border-color: #853535; /* Darker muted red border for total row */
+    font-size: 1.1em;
+}
+
+
+/* Messages */
+.error-message {
+    color: #D32F2F; /* Darker red for errors */
+    background-color: #FFEBEE;
+    border: 1px solid #EF9A9A;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.success-message {
+    color: #388E3C; /* Darker green for success */
+    background-color: #E8F5E9;
+    border: 1px solid #A5D6A7;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.app-footer {
+    width: 100%;
+    background-color: #333; /* Dark grey for footer */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Push footer to the bottom */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+    border-top-left-radius: 15px; /* Rounded corners for footer */
+    border-top-right-radius: 15px;
+}
+
+/* --- Print Specific Styles --- */
+@media print {
+    body {
+        background: none !important; /* Remove gradient for print */
+    }
+    .app-header, .app-footer, .view-switcher, .no-print {
+        display: none !important;
+    }
+
+    /* Hide everything on the page by default */
+    body > *:not(.printable-area-wrapper) {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .printable-area-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 20mm;
+        border: none;
+        box-shadow: none;
+        background-color: white !important;
+        box-sizing: border-box;
+        display: block !important;
+        visibility: visible !important;
+        page-break-after: always;
+        color: #000 !important; /* Force black text */
+    }
+
+    .printable-area-wrapper * {
+        visibility: visible !important;
+        display: revert !important;
+        color: #000 !important;
+        background-color: transparent !important;
+    }
+    .printable-area-wrapper h3, .printable-area-wrapper h4 {
+        color: #333 !important;
+        text-shadow: none !important;
+    }
+    .printable-area-wrapper table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .printable-area-wrapper th, .printable-area-wrapper td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+    .printable-area-wrapper th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+    .printable-area-wrapper .total-row {
+        background-color: #e0e0e0;
+        color: #333;
+    }
+}
